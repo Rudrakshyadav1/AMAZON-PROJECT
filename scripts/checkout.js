@@ -2,6 +2,8 @@ import { products } from "../data/products.js";
 import { cart,deleteElement,updateDeliveryOption} from "../data/cart.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions } from "../data/deliveryOptions.js";
+
+function renderOrderSummary(){
 let html = ''; 
 let checkproduct;
 cart.forEach((item) => {
@@ -109,7 +111,9 @@ document.querySelectorAll('.js-delivery-option').forEach((element)=>{
     console.log(deliveryOptionId);
     console.log(productId);
     updateDeliveryOption(productId, deliveryOptionId);
+    renderOrderSummary();
 
   })
 
-})
+})}
+renderOrderSummary();

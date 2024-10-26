@@ -67,7 +67,4 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
         savetostorage();
         console.log('saved sucessfully');
     }
-    else{
-        console.log("fuck!!");
-    };
 };

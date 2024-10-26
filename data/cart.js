@@ -54,4 +54,20 @@ export function deleteElement(productId){
     cart=cartTemp;
     savetostorage()
 }
-  
+export function updateDeliveryOption(productId, deliveryOptionId) {
+    let matchingItem = null;
+    cart.forEach((item) => {
+        if (productId === item.productId) {
+            matchingItem = item; 
+        }
+    });
+    console.log(matchingItem);
+    if (matchingItem) {
+        matchingItem.deliveryOptionid = deliveryOptionId;
+        savetostorage();
+        console.log('saved sucessfully');
+    }
+    else{
+        console.log("fuck!!");
+    };
+};

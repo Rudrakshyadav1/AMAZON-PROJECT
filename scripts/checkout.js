@@ -1,5 +1,5 @@
 import { products } from "../data/products.js";
-import { cart,deleteElement} from "../data/cart.js";
+import { cart,deleteElement,updateDeliveryOption} from "../data/cart.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions } from "../data/deliveryOptions.js";
 let html = ''; 
@@ -70,7 +70,9 @@ let html='';
     const dateString=deliveryDate.format('dddd, MMMM D');
     const priceString=option.priceCents===0?'FREE':`$${option.priceCents /100}-`
     const ischecked= option.id===item.deliveryOptionid;
-    html+=`<div class="delivery-option">
+    html+=`<div class="delivery-option 
+    js-delivery-option" data-product-id="${checkproduct.id}" 
+    data-delivery-option-id="${option.id}">
               <input type="radio" class="delivery-option-input" name="delivery-option-${checkproduct.id}" ${ischecked ? 'checked':''}>
               <div>
                 <div class="delivery-option-date">
@@ -98,5 +100,16 @@ document.querySelectorAll(".js-delete-link").forEach((deleteLink)=>{
 
       });
 
+
+});
+document.querySelectorAll('.js-delivery-option').forEach((element)=>{
+  element.addEventListener('click',()=>{
+    const productId = element.dataset.productId;
+    const deliveryOptionId = element.dataset.deliveryOptionId;
+    console.log(deliveryOptionId);
+    console.log(productId);
+    updateDeliveryOption(productId, deliveryOptionId);
+
+  })
 
 })

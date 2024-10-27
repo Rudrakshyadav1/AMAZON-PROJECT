@@ -52,7 +52,8 @@ export function deleteElement(productId){
         }
     })
     cart=cartTemp;
-    savetostorage()
+    savetostorage();
+    
 }
 export function updateDeliveryOption(productId, deliveryOptionId) {
     let matchingItem = null;

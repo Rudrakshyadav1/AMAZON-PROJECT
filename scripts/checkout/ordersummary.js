@@ -99,7 +99,7 @@ document.querySelectorAll(".js-delete-link").forEach((deleteLink)=>{
         `.js-cart-item-${productId}`
       );
       containerdelete.remove();
-
+      renderPaymentSummary();
       });
 
 

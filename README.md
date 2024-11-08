@@ -1,2 +1,2 @@
 # AMAZON-PROJECT
- amazon clone
+ amazon clone frontend
